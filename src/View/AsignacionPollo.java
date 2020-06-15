@@ -61,7 +61,7 @@ public class AsignacionPollo extends javax.swing.JFrame {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(174, Short.MAX_VALUE)
+                .addContainerGap(228, Short.MAX_VALUE)
                 .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -72,7 +72,7 @@ public class AsignacionPollo extends javax.swing.JFrame {
                 .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 220, 30));
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 270, 30));
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -84,8 +84,8 @@ public class AsignacionPollo extends javax.swing.JFrame {
         jPanel3.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 92, -1));
 
         jLabel2.setText("Numero de pollo");
-        jPanel3.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 50, -1, -1));
-        jPanel3.add(jSpinner1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 70, 82, -1));
+        jPanel3.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 50, -1, -1));
+        jPanel3.add(jSpinner1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 70, 82, -1));
 
         jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jPanel3.add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, -1, -1));
@@ -94,15 +94,15 @@ public class AsignacionPollo extends javax.swing.JFrame {
         jPanel3.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, -1, -1));
 
         jLabel4.setText("Fecha");
-        jPanel3.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 130, -1, -1));
+        jPanel3.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 140, -1, -1));
 
         jButton1.setBackground(new java.awt.Color(249, 168, 25));
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Agregar");
         jButton1.setBorder(null);
-        jPanel3.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 250, 77, 37));
+        jPanel3.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 290, 77, 37));
 
-        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 220, 360));
+        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 270, 380));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
