@@ -8,6 +8,7 @@ public class Conexion_mysql extends Conexion {
     
     public Conexion_mysql() throws ClassNotFoundException, InstantiationException, IllegalAccessException, SQLException{
         opciones = System.getProperty("options");
+        
         initdb();
     }
     
