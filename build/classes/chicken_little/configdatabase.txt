@@ -1,0 +1,9 @@
+databaseclass=bd.Conexion_mysql
+jdbc=jdbc:mysql://
+driver=com.mysql.jdbc.Driver
+databasehost=localhost
+database=chicken
+username=miguel
+password=fsociety07#
+options=charSet=LATIN1
+mostrarproperties=si

@@ -1,0 +1,8 @@
+select Empleado.Nombre, Ruta.Nombre, Asignacion_rutas.Precio_kg, Asignacion_rutas.Fecha_salida, Asignacion_rutas.Fecha_llegada 
+from Empleado inner join Asignacion_rutas on Empleado.idEmpleado = Asignacion_rutas.Empleado_idEmpleado
+inner join Ruta on Ruta.idRuta = Asignacion_rutas.Ruta_idRuta;
+
+
+select Transportes.Nombre_Transporte, Empleado.Nombre, Transportes.Descripcion from Transportes join Asignacion_Transporte on 
+	Transportes.idTransportes = Asignacion_Transporte.Transportes_idTransportes join 
+    Empleado on Empleado.idEmpleado = Asignacion_Transporte.Empleado_idEmpleado;
