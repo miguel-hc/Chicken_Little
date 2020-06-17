@@ -1,7 +1,7 @@
 databaseclass=bd.Conexion_mysql
 jdbc=jdbc:mysql://
 driver=com.mysql.jdbc.Driver
-databasehost=localhost
+databasehost=192.168.113.4
 database=chicken
 username=miguel
 password=fsociety07#
