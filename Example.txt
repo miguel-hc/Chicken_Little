@@ -1,2 +1,2 @@
-
-hola
+en caso de estar en linux necesitas cambiar la direccin den el archivo inicial del programa para 
+poder leer el archivo txt de configuracion...
