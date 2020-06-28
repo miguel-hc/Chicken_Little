@@ -61,7 +61,6 @@ public class Inicio extends javax.swing.JFrame {
         txtTotal = new javax.swing.JLabel();
         jLabel22 = new javax.swing.JLabel();
         jLabel23 = new javax.swing.JLabel();
-        btnlistar = new javax.swing.JButton();
         Rutas = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         AsignacionPollo = new javax.swing.JPanel();
@@ -384,6 +383,7 @@ public class Inicio extends javax.swing.JFrame {
         jLabel17.setText("Almacen");
         Almacen.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 30, -1, -1));
 
+        jAlmacen.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
         jAlmacen.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
@@ -415,6 +415,8 @@ public class Inicio extends javax.swing.JFrame {
 
         jtotal.setBackground(new java.awt.Color(141, 214, 210));
         jtotal.setPreferredSize(new java.awt.Dimension(210, 100));
+
+        jLabel21.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
 
         jLabel24.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Todo List_96pxblanco.png"))); // NOI18N
 
@@ -458,14 +460,6 @@ public class Inicio extends javax.swing.JFrame {
         jLabel23.setEnabled(false);
         Almacen.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 70, 40, 30));
 
-        btnlistar.setText("Listar");
-        btnlistar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnlistarActionPerformed(evt);
-            }
-        });
-        Almacen.add(btnlistar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 460, -1, -1));
-
         Conten.add(Almacen, "card4");
 
         Rutas.setBackground(new java.awt.Color(255, 255, 255));
@@ -477,6 +471,7 @@ public class Inicio extends javax.swing.JFrame {
 
         jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Fecha", "Etc.." }));
 
+        listapolloreja.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
         listapolloreja.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
@@ -541,6 +536,7 @@ public class Inicio extends javax.swing.JFrame {
 
         jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Fecha", "Etc.." }));
 
+        listaruta.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
         listaruta.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
@@ -603,6 +599,7 @@ public class Inicio extends javax.swing.JFrame {
 
         AsignarTransporte.setBackground(new java.awt.Color(255, 255, 255));
 
+        listatransporte.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
         listatransporte.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
@@ -1106,10 +1103,6 @@ public class Inicio extends javax.swing.JFrame {
         at.setVisible(true);
     }//GEN-LAST:event_jLabel29MouseClicked
 
-    private void btnlistarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnlistarActionPerformed
-        
-    }//GEN-LAST:event_btnlistarActionPerformed
-
     
     /**
      * @param args the command line arguments
@@ -1164,7 +1157,6 @@ public class Inicio extends javax.swing.JFrame {
     private javax.swing.JButton btnInicio;
     private javax.swing.JButton btnRutas;
     private javax.swing.JButton btnVentas;
-    public javax.swing.JButton btnlistar;
     private javax.swing.JLabel icono;
     private javax.swing.JLabel iconoAlmacen;
     private javax.swing.JLabel iconoClientes;

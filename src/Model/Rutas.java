@@ -36,7 +36,7 @@ public class Rutas {
         RutasController aRutas;
         
         Conexion cdb = factoriaServicio.getInstancia().getConexionDB();
-        cdb.un_sql = "select Empleado.Nombre, Ruta.Nombre, Asignacion_rutas.Precio_kg, Asignacion_rutas.Fecha_salida, Asignacion_rutas.Fecha_llegada from Empleado inner join Asignacion_rutas on Empleado.idEmpleado = Asignacion_rutas.Empleado_idEmpleado inner join Ruta on Ruta.idRuta = Asignacion_rutas.Ruta_idRuta";
+        cdb.un_sql = "select Empleado.Nombre, Ruta.Nombre, Asignacion_rutas.GastosTotal, Asignacion_rutas.Fecha_salida, Asignacion_rutas.Fecha_llegada from Empleado inner join Asignacion_rutas on Empleado.idEmpleado = Asignacion_rutas.Empleado_idEmpleado inner join Ruta on Ruta.idRuta = Asignacion_rutas.Ruta_idRuta";
         cdb.resultado = cdb.un_st.executeQuery(cdb.un_sql);
         
         while(cdb.resultado.next()){

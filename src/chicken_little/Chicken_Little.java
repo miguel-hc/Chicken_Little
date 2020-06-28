@@ -24,7 +24,7 @@ public class Chicken_Little {
     {
         Component dialog = null;
         try{
-            FileInputStream propFile = new FileInputStream(System.getProperty("user.dir")+"\\src\\chicken_little\\configdatabase.txt");
+            FileInputStream propFile = new FileInputStream(System.getProperty("user.dir")+"/src/chicken_little/configdatabase.txt");
             Properties p = new Properties(System.getProperties());
             p.load(propFile);
             System.setProperties(p);
