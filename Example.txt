@@ -1,2 +1,4 @@
-en caso de estar en linux necesitas cambiar la direccin den el archivo inicial del programa para 
+en caso de estar en windows necesitas cambiar la direccin den el archivo inicial del programa para 
 poder leer el archivo txt de configuracion...
+- Remplaza la direccion "/src/chicken_little/configdatabase.txt" por "\\src\\chicken_little\\configdatabase.txt".
+- Modificar los parametros en el archivo "configdatabase.txt" con los datos para establecer conexion a mysql.
