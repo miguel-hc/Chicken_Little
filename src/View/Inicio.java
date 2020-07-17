@@ -88,7 +88,28 @@ public class Inicio extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         Clientes = new javax.swing.JPanel();
+        jPanel1 = new javax.swing.JPanel();
         jLabel18 = new javax.swing.JLabel();
+        jLabel25 = new javax.swing.JLabel();
+        jTextField5 = new javax.swing.JTextField();
+        jLabel31 = new javax.swing.JLabel();
+        jLabel32 = new javax.swing.JLabel();
+        jLabel33 = new javax.swing.JLabel();
+        jSpinner1 = new javax.swing.JSpinner();
+        jSpinner2 = new javax.swing.JSpinner();
+        jSpinner3 = new javax.swing.JSpinner();
+        jLabel34 = new javax.swing.JLabel();
+        jSpinner4 = new javax.swing.JSpinner();
+        jLabel35 = new javax.swing.JLabel();
+        jTextField6 = new javax.swing.JTextField();
+        jLabel36 = new javax.swing.JLabel();
+        jLabel37 = new javax.swing.JLabel();
+        jLabel38 = new javax.swing.JLabel();
+        jLabel39 = new javax.swing.JLabel();
+        jLabel40 = new javax.swing.JLabel();
+        jCheckBox1 = new javax.swing.JCheckBox();
+        jButton4 = new javax.swing.JButton();
+        jButton5 = new javax.swing.JButton();
         Ventas = new javax.swing.JPanel();
         jLabel19 = new javax.swing.JLabel();
         Empleados = new javax.swing.JPanel();
@@ -695,23 +716,71 @@ public class Inicio extends javax.swing.JFrame {
 
         Clientes.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel18.setText("Clientes");
+        jPanel1.setForeground(new java.awt.Color(204, 204, 204));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel18.setText("Registro Cliente-Venta");
+        jPanel1.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 20, -1, -1));
+
+        jLabel25.setText("Nom cliente:");
+        jPanel1.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, -1, -1));
+        jPanel1.add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 70, 160, 30));
+
+        jLabel31.setText("Num rejas:");
+        jPanel1.add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, -1, -1));
+
+        jLabel32.setText("Num pollos:");
+        jPanel1.add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 180, -1, -1));
+
+        jLabel33.setText("Kg pollo:");
+        jPanel1.add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 230, -1, -1));
+        jPanel1.add(jSpinner1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 220, 160, -1));
+        jPanel1.add(jSpinner2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 120, 160, -1));
+        jPanel1.add(jSpinner3, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 170, 160, -1));
+
+        jLabel34.setText("Precio:");
+        jPanel1.add(jLabel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 280, -1, -1));
+        jPanel1.add(jSpinner4, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 270, 160, -1));
+
+        jLabel35.setText("Domicilio:");
+        jPanel1.add(jLabel35, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 320, -1, -1));
+        jPanel1.add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 310, 160, 30));
+
+        jLabel36.setText("Fecha:");
+        jPanel1.add(jLabel36, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 370, -1, -1));
+
+        jLabel37.setText("Total:");
+        jPanel1.add(jLabel37, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 410, -1, -1));
+
+        jLabel38.setText("Por credito");
+        jPanel1.add(jLabel38, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 460, -1, -1));
+
+        jLabel39.setText("Num credito:");
+        jPanel1.add(jLabel39, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 460, -1, -1));
+
+        jLabel40.setText("Total Credito:");
+        jPanel1.add(jLabel40, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 510, -1, -1));
+
+        jCheckBox1.setText("Generar tiket");
+        jPanel1.add(jCheckBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 530, -1, -1));
+
+        jButton4.setText("Agregar");
+        jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 560, -1, -1));
+
+        jButton5.setText("Imprimir pdf");
+        jPanel1.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 560, -1, -1));
 
         javax.swing.GroupLayout ClientesLayout = new javax.swing.GroupLayout(Clientes);
         Clientes.setLayout(ClientesLayout);
         ClientesLayout.setHorizontalGroup(
             ClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(ClientesLayout.createSequentialGroup()
-                .addGap(386, 386, 386)
-                .addComponent(jLabel18)
-                .addContainerGap(506, Short.MAX_VALUE))
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 675, Short.MAX_VALUE))
         );
         ClientesLayout.setVerticalGroup(
             ClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(ClientesLayout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addComponent(jLabel18)
-                .addContainerGap(565, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 600, Short.MAX_VALUE)
         );
 
         Conten.add(Clientes, "card5");
@@ -1169,6 +1238,9 @@ public class Inicio extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
+    private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JComboBox<String> jComboBox3;
@@ -1190,18 +1262,30 @@ public class Inicio extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
+    private javax.swing.JLabel jLabel31;
+    private javax.swing.JLabel jLabel32;
+    private javax.swing.JLabel jLabel33;
+    private javax.swing.JLabel jLabel34;
+    private javax.swing.JLabel jLabel35;
+    private javax.swing.JLabel jLabel36;
+    private javax.swing.JLabel jLabel37;
+    private javax.swing.JLabel jLabel38;
+    private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel40;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
     private javax.swing.JPanel jPanel12;
@@ -1217,10 +1301,16 @@ public class Inicio extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JSpinner jSpinner1;
+    private javax.swing.JSpinner jSpinner2;
+    private javax.swing.JSpinner jSpinner3;
+    private javax.swing.JSpinner jSpinner4;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
+    private javax.swing.JTextField jTextField5;
+    private javax.swing.JTextField jTextField6;
     private javax.swing.JPanel jtotal;
     public javax.swing.JTable listapolloreja;
     public javax.swing.JTable listaruta;

@@ -2,8 +2,8 @@ databaseclass=bd.Conexion_mysql
 jdbc=jdbc:mysql://
 driver=com.mysql.jdbc.Driver
 databasehost=192.168.113.5
-database=chicken?serverTimezone=UTC
+database=chicken
 username=miguel
-password=fsociety07#
+password=Fsociety07#
 options=charSet=LATIN1
 mostrarproperties=si
