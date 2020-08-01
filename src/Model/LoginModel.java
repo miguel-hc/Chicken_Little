@@ -24,6 +24,7 @@ public class LoginModel {
                 acces = true;
             }
         }
+        //cdb.conexion.close();
     }
     
     public boolean isLogin(){

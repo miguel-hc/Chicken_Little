@@ -65,8 +65,10 @@ public class Chicken_Little {
             System.exit(-1);
         }
         
-        Login login = new Login();
-        login.setVisible(true);
+        Inicio inicio = new Inicio();
+        inicio.setVisible(true);
+        //Login login = new Login();
+        //login.setVisible(true);
         
         
     }

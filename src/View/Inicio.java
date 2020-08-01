@@ -2,8 +2,11 @@ package View;
 
 import Controller.AlmacenController;
 import Controller.ControllerListener;
+import Controller.EmpleadoController;
+import Controller.ListenerEmpleados;
 import Controller.ListenerRutas;
 import Model.Almacen;
+import Model.Empleado;
 import Model.Rutas;
 import java.sql.SQLException;
 import java.util.logging.Level;
@@ -129,26 +132,26 @@ public class Inicio extends javax.swing.JFrame {
         Empleados = new javax.swing.JPanel();
         jPanel16 = new javax.swing.JPanel();
         jLabel42 = new javax.swing.JLabel();
-        jTextField9 = new javax.swing.JTextField();
-        jTextField10 = new javax.swing.JTextField();
+        txtNombre = new javax.swing.JTextField();
+        txtApellidos = new javax.swing.JTextField();
         jLabel43 = new javax.swing.JLabel();
         jLabel44 = new javax.swing.JLabel();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
+        jrHombre = new javax.swing.JRadioButton();
+        jrMujer = new javax.swing.JRadioButton();
         jLabel45 = new javax.swing.JLabel();
-        jTextField11 = new javax.swing.JTextField();
+        txtDireccion = new javax.swing.JTextField();
         jLabel46 = new javax.swing.JLabel();
-        jTextField12 = new javax.swing.JTextField();
-        jButton10 = new javax.swing.JButton();
+        txtTelefono = new javax.swing.JTextField();
+        btnAgregareE = new javax.swing.JButton();
         jPanel17 = new javax.swing.JPanel();
         jButton11 = new javax.swing.JButton();
         jLabel20 = new javax.swing.JLabel();
-        jTextField13 = new javax.swing.JTextField();
+        jSearch = new javax.swing.JTextField();
         jScrollPane7 = new javax.swing.JScrollPane();
-        jTable3 = new javax.swing.JTable();
+        jEmpleados = new javax.swing.JTable();
         jPanel18 = new javax.swing.JPanel();
-        jButton12 = new javax.swing.JButton();
-        jButton13 = new javax.swing.JButton();
+        btnUpdateE = new javax.swing.JButton();
+        btnDeleteE = new javax.swing.JButton();
         Dashboard = new javax.swing.JPanel();
         icono = new javax.swing.JLabel();
         iconoInicio = new javax.swing.JLabel();
@@ -915,8 +918,8 @@ public class Inicio extends javax.swing.JFrame {
 
         jLabel42.setText("Nombre:");
         jPanel16.add(jLabel42, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, -1, -1));
-        jPanel16.add(jTextField9, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 40, 120, 20));
-        jPanel16.add(jTextField10, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 90, 120, 20));
+        jPanel16.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 40, 120, 20));
+        jPanel16.add(txtApellidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 90, 120, 20));
 
         jLabel43.setText("Apellido:");
         jPanel16.add(jLabel43, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, -1, -1));
@@ -924,24 +927,29 @@ public class Inicio extends javax.swing.JFrame {
         jLabel44.setText("Sexo:");
         jPanel16.add(jLabel44, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 150, -1, -1));
 
-        jRadioButton1.setText("H");
-        jPanel16.add(jRadioButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 138, -1, 40));
+        jrHombre.setText("H");
+        jPanel16.add(jrHombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 138, -1, 40));
 
-        jRadioButton2.setText("M");
-        jPanel16.add(jRadioButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 138, -1, 40));
+        jrMujer.setText("M");
+        jPanel16.add(jrMujer, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 138, -1, 40));
 
         jLabel45.setText("Direccion:");
         jPanel16.add(jLabel45, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 200, -1, -1));
-        jPanel16.add(jTextField11, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 200, 120, 20));
+        jPanel16.add(txtDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 200, 120, 20));
 
         jLabel46.setText("Telefono:");
         jPanel16.add(jLabel46, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 250, -1, -1));
-        jPanel16.add(jTextField12, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 250, 120, 20));
+        jPanel16.add(txtTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 250, 120, 20));
 
-        jButton10.setBackground(new java.awt.Color(1, 169, 207));
-        jButton10.setForeground(new java.awt.Color(255, 255, 255));
-        jButton10.setText("Agregar");
-        jPanel16.add(jButton10, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 400, 110, 40));
+        btnAgregareE.setBackground(new java.awt.Color(1, 169, 207));
+        btnAgregareE.setForeground(new java.awt.Color(255, 255, 255));
+        btnAgregareE.setText("Agregar");
+        btnAgregareE.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAgregareEActionPerformed(evt);
+            }
+        });
+        jPanel16.add(btnAgregareE, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 400, 110, 40));
 
         Empleados.add(jPanel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 260, 600));
 
@@ -954,11 +962,11 @@ public class Inicio extends javax.swing.JFrame {
 
         jLabel20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Search_104px.png"))); // NOI18N
         jPanel17.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 30, -1, -1));
-        jPanel17.add(jTextField13, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 30, 190, 30));
+        jPanel17.add(jSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 30, 190, 30));
 
         Empleados.add(jPanel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 0, 690, 90));
 
-        jTable3.setModel(new javax.swing.table.DefaultTableModel(
+        jEmpleados.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -969,17 +977,17 @@ public class Inicio extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane7.setViewportView(jTable3);
+        jScrollPane7.setViewportView(jEmpleados);
 
         Empleados.add(jScrollPane7, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 110, 640, 350));
 
-        jButton12.setBackground(new java.awt.Color(1, 112, 139));
-        jButton12.setForeground(new java.awt.Color(255, 255, 255));
-        jButton12.setText("Modificar");
+        btnUpdateE.setBackground(new java.awt.Color(1, 112, 139));
+        btnUpdateE.setForeground(new java.awt.Color(255, 255, 255));
+        btnUpdateE.setText("Modificar");
 
-        jButton13.setBackground(new java.awt.Color(249, 119, 83));
-        jButton13.setForeground(new java.awt.Color(255, 255, 255));
-        jButton13.setText("Eliminar");
+        btnDeleteE.setBackground(new java.awt.Color(249, 119, 83));
+        btnDeleteE.setForeground(new java.awt.Color(255, 255, 255));
+        btnDeleteE.setText("Eliminar");
 
         javax.swing.GroupLayout jPanel18Layout = new javax.swing.GroupLayout(jPanel18);
         jPanel18.setLayout(jPanel18Layout);
@@ -987,9 +995,9 @@ public class Inicio extends javax.swing.JFrame {
             jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel18Layout.createSequentialGroup()
                 .addGap(128, 128, 128)
-                .addComponent(jButton12, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnUpdateE, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 200, Short.MAX_VALUE)
-                .addComponent(jButton13, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnDeleteE, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(93, 93, 93))
         );
         jPanel18Layout.setVerticalGroup(
@@ -997,8 +1005,8 @@ public class Inicio extends javax.swing.JFrame {
             .addGroup(jPanel18Layout.createSequentialGroup()
                 .addGap(21, 21, 21)
                 .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton12, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton13, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnUpdateE, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnDeleteE, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(26, Short.MAX_VALUE))
         );
 
@@ -1262,6 +1270,21 @@ public class Inicio extends javax.swing.JFrame {
     }//GEN-LAST:event_btnVentasActionPerformed
 
     private void btnEmpleadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEmpleadosActionPerformed
+        EmpleadoController empleadocl = new EmpleadoController();
+        Empleado empleado = new Empleado();
+        ListenerEmpleados listener = new ListenerEmpleados(this,empleadocl);
+        try {
+            listener.llebarTabla(jEmpleados);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Inicio.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            Logger.getLogger(Inicio.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(Inicio.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            Logger.getLogger(Inicio.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
         Home.setVisible(false);
         btnInicio.setBackground(new java.awt.Color(255,255,255));
         Almacen.setVisible(false);
@@ -1346,6 +1369,37 @@ public class Inicio extends javax.swing.JFrame {
         at.setVisible(true);
     }//GEN-LAST:event_jLabel29MouseClicked
 
+    private void btnAgregareEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregareEActionPerformed
+        EmpleadoController empleado = new EmpleadoController();
+        ListenerEmpleados listedmpleado = new ListenerEmpleados(this, empleado);
+        try {
+            listedmpleado.setDatosEpleados();
+            if (empleado.getStatusAddClient() == true){
+                JOptionPane.showMessageDialog(null,"Empleado registrado con exito");
+                listedmpleado.llebarTabla(jEmpleados);
+                VaciarDatos();
+            }else {
+                JOptionPane.showMessageDialog(null,"Datos errones o campos vacios");
+            }  
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Inicio.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            Logger.getLogger(Inicio.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            Logger.getLogger(Inicio.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(Inicio.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }//GEN-LAST:event_btnAgregareEActionPerformed
+
+    public void VaciarDatos(){
+        txtNombre.setText("");
+        txtApellidos.setText("");
+        txtDireccion.setText("");
+        txtTelefono.setText("");
+    }
+    
     
     /**
      * @param args the command line arguments
@@ -1394,11 +1448,14 @@ public class Inicio extends javax.swing.JFrame {
     private javax.swing.JPanel Home;
     private javax.swing.JPanel Rutas;
     private javax.swing.JPanel Ventas;
+    public javax.swing.JButton btnAgregareE;
     public javax.swing.JButton btnAlmacen;
     private javax.swing.JButton btnClientes;
+    public javax.swing.JButton btnDeleteE;
     private javax.swing.JButton btnEmpleados;
     private javax.swing.JButton btnInicio;
     private javax.swing.JButton btnRutas;
+    public javax.swing.JButton btnUpdateE;
     private javax.swing.JButton btnVentas;
     private javax.swing.JLabel icono;
     private javax.swing.JLabel iconoAlmacen;
@@ -1410,10 +1467,7 @@ public class Inicio extends javax.swing.JFrame {
     private javax.swing.JLabel iconoVentas;
     public javax.swing.JTable jAlmacen;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton10;
-    private javax.swing.JButton jButton11;
-    private javax.swing.JButton jButton12;
-    private javax.swing.JButton jButton13;
+    public javax.swing.JButton jButton11;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
@@ -1427,6 +1481,7 @@ public class Inicio extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JComboBox<String> jComboBox3;
     private javax.swing.JComboBox<String> jComboBox4;
+    public javax.swing.JTable jEmpleados;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -1491,8 +1546,6 @@ public class Inicio extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
@@ -1500,18 +1553,14 @@ public class Inicio extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane7;
+    public javax.swing.JTextField jSearch;
     private javax.swing.JSpinner jSpinner1;
     private javax.swing.JSpinner jSpinner2;
     private javax.swing.JSpinner jSpinner3;
     private javax.swing.JSpinner jSpinner4;
     private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
-    private javax.swing.JTable jTable3;
     private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField10;
-    private javax.swing.JTextField jTextField11;
-    private javax.swing.JTextField jTextField12;
-    private javax.swing.JTextField jTextField13;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
@@ -1519,12 +1568,17 @@ public class Inicio extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField6;
     private javax.swing.JTextField jTextField7;
     private javax.swing.JTextField jTextField8;
-    private javax.swing.JTextField jTextField9;
+    public javax.swing.JRadioButton jrHombre;
+    public javax.swing.JRadioButton jrMujer;
     private javax.swing.JPanel jtotal;
     public javax.swing.JTable listapolloreja;
     public javax.swing.JTable listaruta;
     private javax.swing.JTable listatransporte;
+    public javax.swing.JTextField txtApellidos;
+    public javax.swing.JTextField txtDireccion;
+    public javax.swing.JTextField txtNombre;
     private javax.swing.JLabel txtSalir;
+    public javax.swing.JTextField txtTelefono;
     public javax.swing.JLabel txtTotal;
     // End of variables declaration//GEN-END:variables
 }
