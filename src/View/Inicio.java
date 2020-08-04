@@ -152,6 +152,7 @@ public class Inicio extends javax.swing.JFrame {
         jPanel18 = new javax.swing.JPanel();
         btnUpdateE = new javax.swing.JButton();
         btnDeleteE = new javax.swing.JButton();
+        btnEditar = new javax.swing.JButton();
         Dashboard = new javax.swing.JPanel();
         icono = new javax.swing.JLabel();
         iconoInicio = new javax.swing.JLabel();
@@ -989,14 +990,18 @@ public class Inicio extends javax.swing.JFrame {
         btnDeleteE.setForeground(new java.awt.Color(255, 255, 255));
         btnDeleteE.setText("Eliminar");
 
+        btnEditar.setText("Editar");
+
         javax.swing.GroupLayout jPanel18Layout = new javax.swing.GroupLayout(jPanel18);
         jPanel18.setLayout(jPanel18Layout);
         jPanel18Layout.setHorizontalGroup(
             jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel18Layout.createSequentialGroup()
-                .addGap(128, 128, 128)
+                .addContainerGap()
+                .addComponent(btnEditar)
+                .addGap(24, 24, 24)
                 .addComponent(btnUpdateE, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 200, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 226, Short.MAX_VALUE)
                 .addComponent(btnDeleteE, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(93, 93, 93))
         );
@@ -1006,7 +1011,8 @@ public class Inicio extends javax.swing.JFrame {
                 .addGap(21, 21, 21)
                 .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnUpdateE, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnDeleteE, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnDeleteE, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnEditar))
                 .addContainerGap(26, Short.MAX_VALUE))
         );
 
@@ -1452,6 +1458,7 @@ public class Inicio extends javax.swing.JFrame {
     public javax.swing.JButton btnAlmacen;
     private javax.swing.JButton btnClientes;
     public javax.swing.JButton btnDeleteE;
+    public javax.swing.JButton btnEditar;
     private javax.swing.JButton btnEmpleados;
     private javax.swing.JButton btnInicio;
     private javax.swing.JButton btnRutas;
