@@ -67,14 +67,14 @@ public class Inicio extends javax.swing.JFrame {
         Rutas = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         AsignacionPollo = new javax.swing.JPanel();
-        jTextField2 = new javax.swing.JTextField();
-        jComboBox2 = new javax.swing.JComboBox<>();
+        jSearchPR = new javax.swing.JTextField();
+        jarc = new javax.swing.JComboBox<>();
         jScrollPane2 = new javax.swing.JScrollPane();
         listapolloreja = new javax.swing.JTable();
         jLabel16 = new javax.swing.JLabel();
         jLabel26 = new javax.swing.JLabel();
         AsignacionRutas = new javax.swing.JPanel();
-        jTextField3 = new javax.swing.JTextField();
+        jarSeach = new javax.swing.JTextField();
         jComboBox3 = new javax.swing.JComboBox<>();
         jScrollPane3 = new javax.swing.JScrollPane();
         listaruta = new javax.swing.JTable();
@@ -529,7 +529,7 @@ public class Inicio extends javax.swing.JFrame {
 
         AsignacionPollo.setBackground(new java.awt.Color(255, 255, 255));
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Fecha", "Etc.." }));
+        jarc.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Fecha", "Etc.." }));
 
         listapolloreja.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
         listapolloreja.setModel(new javax.swing.table.DefaultTableModel(
@@ -560,9 +560,9 @@ public class Inicio extends javax.swing.JFrame {
         AsignacionPolloLayout.setHorizontalGroup(
             AsignacionPolloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(AsignacionPolloLayout.createSequentialGroup()
-                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jSearchPR, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(10, 10, 10)
-                .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jarc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 526, Short.MAX_VALUE))
             .addGroup(AsignacionPolloLayout.createSequentialGroup()
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 613, Short.MAX_VALUE)
@@ -576,8 +576,8 @@ public class Inicio extends javax.swing.JFrame {
             AsignacionPolloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(AsignacionPolloLayout.createSequentialGroup()
                 .addGroup(AsignacionPolloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jSearchPR, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jarc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(AsignacionPolloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(AsignacionPolloLayout.createSequentialGroup()
                         .addGap(18, 18, 18)
@@ -594,7 +594,7 @@ public class Inicio extends javax.swing.JFrame {
 
         AsignacionRutas.setBackground(new java.awt.Color(255, 255, 255));
 
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Fecha", "Etc.." }));
+        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Fecha", "Nombre" }));
 
         listaruta.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
         listaruta.setModel(new javax.swing.table.DefaultTableModel(
@@ -625,10 +625,10 @@ public class Inicio extends javax.swing.JFrame {
         AsignacionRutasLayout.setHorizontalGroup(
             AsignacionRutasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(AsignacionRutasLayout.createSequentialGroup()
-                .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jarSeach, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(10, 10, 10)
                 .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 526, Short.MAX_VALUE))
+                .addGap(0, 495, Short.MAX_VALUE))
             .addGroup(AsignacionRutasLayout.createSequentialGroup()
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 618, Short.MAX_VALUE)
                 .addGap(32, 32, 32)
@@ -641,7 +641,7 @@ public class Inicio extends javax.swing.JFrame {
             AsignacionRutasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(AsignacionRutasLayout.createSequentialGroup()
                 .addGroup(AsignacionRutasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jarSeach, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(AsignacionRutasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(AsignacionRutasLayout.createSequentialGroup()
@@ -1485,7 +1485,6 @@ public class Inicio extends javax.swing.JFrame {
     private javax.swing.JButton jButton9;
     private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JComboBox<String> jComboBox3;
     private javax.swing.JComboBox<String> jComboBox4;
     public javax.swing.JTable jEmpleados;
@@ -1561,6 +1560,7 @@ public class Inicio extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane7;
     public javax.swing.JTextField jSearch;
+    public javax.swing.JTextField jSearchPR;
     private javax.swing.JSpinner jSpinner1;
     private javax.swing.JSpinner jSpinner2;
     private javax.swing.JSpinner jSpinner3;
@@ -1568,13 +1568,13 @@ public class Inicio extends javax.swing.JFrame {
     private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
     private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField6;
     private javax.swing.JTextField jTextField7;
     private javax.swing.JTextField jTextField8;
+    public javax.swing.JTextField jarSeach;
+    public javax.swing.JComboBox<String> jarc;
     public javax.swing.JRadioButton jrHombre;
     public javax.swing.JRadioButton jrMujer;
     private javax.swing.JPanel jtotal;

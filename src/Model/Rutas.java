@@ -72,5 +72,51 @@ public class Rutas {
         
         return ListaTransporte;
     }
+     
+     public ArrayList<RutasController> SearchPR(String fecha) throws ClassNotFoundException, InstantiationException, SQLException, IllegalAccessException{
+        
+        ArrayList listaRejas = new ArrayList();
+        RutasController rejas;
+        
+        Conexion cdb = factoriaServicio.getInstancia().getConexionDB();
+        cdb.un_sql = "select * from Rejas where Fecha like '%"+fecha+"%'";
+        cdb.resultado = cdb.un_st.executeQuery(cdb.un_sql);
+        
+        while(cdb.resultado.next()){
+            rejas = new RutasController();
+            rejas.setDnireja(cdb.resultado.getInt(2));
+            rejas.setNumero(cdb.resultado.getInt(3));
+            rejas.setKg(cdb.resultado.getInt(4));
+            rejas.setPrecio(cdb.resultado.getInt(5));
+            rejas.setFecha(cdb.resultado.getString(6));
+            listaRejas.add(rejas);
+        }
+        
+        return listaRejas;
+    }
+     
+     
+     public ArrayList<RutasController> SearchAsignarRuta(String tabla, String condicion) throws ClassNotFoundException, InstantiationException, SQLException, IllegalAccessException{
+        
+        ArrayList listaRejas = new ArrayList();
+        RutasController rejas;
+        
+        Conexion cdb = factoriaServicio.getInstancia().getConexionDB();
+        cdb.un_sql = "select Empleado.Nombre, Ruta.Nombre, Asignacion_rutas.GastosTotal, Asignacion_rutas.Fecha_salida, Asignacion_rutas.Fecha_llegada from Empleado inner join Asignacion_rutas on Empleado.idEmpleado = Asignacion_rutas.Empleado_idEmpleado inner join Ruta on Ruta.idRuta = Asignacion_rutas.Ruta_idRuta where "+tabla+" like '%"+condicion+"%'";
+        System.out.println(cdb.un_sql);
+        cdb.resultado = cdb.un_st.executeQuery(cdb.un_sql);
+        
+        while(cdb.resultado.next()){
+            rejas = new RutasController();
+            rejas.setNombreEmpleado(cdb.resultado.getString(1));
+            rejas.setNombreRuta(cdb.resultado.getString(2));
+            rejas.setPrecio(cdb.resultado.getInt(3));
+            rejas.setFechaSalida(cdb.resultado.getString(4));
+            rejas.setFechallegada(cdb.resultado.getString(5));
+            listaRejas.add(rejas);
+        }
+        
+        return listaRejas;
+    }
     
 }

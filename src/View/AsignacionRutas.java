@@ -1,12 +1,52 @@
 
 package View;
-
+import Controller.AsignarRutaController;
+import java.sql.SQLException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 public class AsignacionRutas extends javax.swing.JFrame {
    
-    public AsignacionRutas() {
+    AsignarRutaController ruta = new AsignarRutaController();
+    
+    public AsignacionRutas(){
         initComponents();
         this.setLocationRelativeTo(this);
+        try {
+            getEmpleado();
+            getRuta();
+        } catch (SQLException ex) {
+            Logger.getLogger(AsignacionRutas.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(AsignacionRutas.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            Logger.getLogger(AsignacionRutas.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            Logger.getLogger(AsignacionRutas.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }
+    
+    public void getEmpleado() throws SQLException, ClassNotFoundException, InstantiationException, IllegalAccessException{
+        jNombre.removeAllItems();
+        ArrayList<String> lista = new ArrayList<String>();
+        lista = ruta.ListarEmpleado();
+        for (int i = 0; i<lista.size(); i ++){
+            jNombre.addItem(lista.get(i));
+        }
+    }
+    
+    public void getRuta() throws SQLException, ClassNotFoundException, InstantiationException, IllegalAccessException{
+    
+        jRuta.removeAllItems();
+        ArrayList<String> listaRuta = new ArrayList<String>();
+        listaRuta = ruta.ListarRuta();
+        for (int i = 0; i<listaRuta.size(); i ++){
+            jRuta.addItem(listaRuta.get(i));
+        }
     }
 
     @SuppressWarnings("unchecked")
@@ -17,18 +57,18 @@ public class AsignacionRutas extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        jNombre = new javax.swing.JComboBox<>();
         jLabel2 = new javax.swing.JLabel();
-        jComboBox2 = new javax.swing.JComboBox<>();
+        jRuta = new javax.swing.JComboBox<>();
         jLabel3 = new javax.swing.JLabel();
-        jSpinner1 = new javax.swing.JSpinner();
+        txtGasto = new javax.swing.JSpinner();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jDateChooser1 = new com.toedter.calendar.JDateChooser();
-        jDateChooser2 = new com.toedter.calendar.JDateChooser();
-        jSpinner2 = new javax.swing.JSpinner();
+        btnSave = new javax.swing.JButton();
+        jfechaE = new com.toedter.calendar.JDateChooser();
+        jFechaS = new com.toedter.calendar.JDateChooser();
+        txtPrecio = new javax.swing.JSpinner();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -65,18 +105,18 @@ public class AsignacionRutas extends javax.swing.JFrame {
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 320, 40));
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jPanel1.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 120, -1));
+        jNombre.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jPanel1.add(jNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 120, -1));
 
         jLabel2.setText("Ruta:");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 80, -1, -1));
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jPanel1.add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 110, 120, -1));
+        jRuta.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jPanel1.add(jRuta, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 110, 120, -1));
 
         jLabel3.setText("Precio:");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, -1, -1));
-        jPanel1.add(jSpinner1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 260, 120, -1));
+        jPanel1.add(txtGasto, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 260, 120, -1));
 
         jLabel4.setText("Fecha Entrega:");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 160, -1, -1));
@@ -87,12 +127,17 @@ public class AsignacionRutas extends javax.swing.JFrame {
         jLabel6.setText("Gasto total:");
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 230, -1, -1));
 
-        jButton1.setBackground(new java.awt.Color(249, 168, 25));
-        jButton1.setText("Agregar");
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 360, -1, -1));
-        jPanel1.add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 180, -1, -1));
-        jPanel1.add(jDateChooser2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 260, -1, -1));
-        jPanel1.add(jSpinner2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 180, 120, -1));
+        btnSave.setBackground(new java.awt.Color(249, 168, 25));
+        btnSave.setText("Agregar");
+        btnSave.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSaveActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnSave, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 360, -1, -1));
+        jPanel1.add(jfechaE, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 180, -1, -1));
+        jPanel1.add(jFechaS, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 260, -1, -1));
+        jPanel1.add(txtPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 180, 120, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -111,6 +156,37 @@ public class AsignacionRutas extends javax.swing.JFrame {
     private void jLabel7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MouseClicked
         this.setVisible(false);
     }//GEN-LAST:event_jLabel7MouseClicked
+
+    private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
+        SimpleDateFormat fe = new SimpleDateFormat("yyy-MM-dd");
+        SimpleDateFormat fs = new SimpleDateFormat("yyy-MM-dd");
+        String nombre = (String) jNombre.getSelectedItem();
+        String Ruta = (String) jRuta.getSelectedItem();
+        int Precio = (int) txtPrecio.getPreviousValue() + 1;
+        int Gasto = (int) txtGasto.getPreviousValue() + 1;
+        String fe1 = fe.format(jfechaE.getDate());
+        String fs1 = fs.format(jFechaS.getDate());
+        if (!"".equals(fe1) && !"".equals(fs1)){
+            try {
+                ruta.AsignarRuta(nombre, Ruta, Precio, fe1, fs1, Gasto);
+                JOptionPane.showMessageDialog(null, "Ruta asignada...");
+            } catch (ClassNotFoundException ex) {
+                //Logger.getLogger(AsignacionRutas.class.getName()).log(Level.SEVERE, null, ex);
+                System.out.println("error1");
+            } catch (InstantiationException ex) {
+                //Logger.getLogger(AsignacionRutas.class.getName()).log(Level.SEVERE, null, ex);
+                System.out.println("error2");
+            } catch (IllegalAccessException ex) {
+               //Logger.getLogger(AsignacionRutas.class.getName()).log(Level.SEVERE, null, ex);
+               System.out.println("error3");
+            } catch (SQLException ex) {
+                //Logger.getLogger(AsignacionRutas.class.getName()).log(Level.SEVERE, null, ex);
+                System.out.println("error4");
+            }
+        }else{
+            JOptionPane.showMessageDialog(null, "No pueden quedar campos vacios...");
+        }
+    }//GEN-LAST:event_btnSaveActionPerformed
 
     /**
      * @param args the command line arguments
@@ -148,11 +224,8 @@ public class AsignacionRutas extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
-    private com.toedter.calendar.JDateChooser jDateChooser1;
-    private com.toedter.calendar.JDateChooser jDateChooser2;
+    public javax.swing.JButton btnSave;
+    public com.toedter.calendar.JDateChooser jFechaS;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -160,9 +233,12 @@ public class AsignacionRutas extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    public javax.swing.JComboBox<String> jNombre;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JSpinner jSpinner1;
-    private javax.swing.JSpinner jSpinner2;
+    public javax.swing.JComboBox<String> jRuta;
+    public com.toedter.calendar.JDateChooser jfechaE;
+    public javax.swing.JSpinner txtGasto;
+    public javax.swing.JSpinner txtPrecio;
     // End of variables declaration//GEN-END:variables
 }
