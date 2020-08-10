@@ -130,12 +130,13 @@ public class ListenerRutas implements ActionListener, KeyListener{
     
         String condicion = inicio.jarSeach.getText();
         String  tabla = "";
-        
-        if (inicio.jarc.getSelectedItem() == "Nombre" ){
+        inicio.jarc.addActionListener(this);
+        if (inicio.jarc.getSelectedIndex() != 0 ){
             tabla = "Empleado.Nombre";
         }else {
             tabla = "Asignacion_rutas.Fecha_salida";
         }
+        System.out.println(inicio.jarc.getSelectedItem());
 
         DefaultTableModel modelR = new DefaultTableModel();
         inicio.listaruta.setModel(modelR);

@@ -4,6 +4,13 @@
  * and open the template in the editor.
  */
 package View;
+import Controller.AsignarTransporteController;
+import java.sql.SQLException;
+        
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -11,12 +18,26 @@ package View;
  */
 public class AsignarTransporte extends javax.swing.JFrame {
 
+    
+    AsignarTransporteController transporte = new AsignarTransporteController();
     /**
      * Creates new form AsignarTransporte
      */
     public AsignarTransporte() {
         initComponents();
         this.setLocationRelativeTo(this);
+        try {
+            getEmpleado();
+            getTrasporte();
+        } catch (SQLException ex) {
+            Logger.getLogger(AsignarTransporte.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(AsignarTransporte.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            Logger.getLogger(AsignarTransporte.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            Logger.getLogger(AsignarTransporte.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
@@ -33,8 +54,8 @@ public class AsignarTransporte extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jComboBox2 = new javax.swing.JComboBox<>();
+        jTransporte = new javax.swing.JComboBox<>();
+        jEmpleado = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
         jLabel3 = new javax.swing.JLabel();
@@ -42,7 +63,7 @@ public class AsignarTransporte extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
-        setPreferredSize(new java.awt.Dimension(250, 373));
+        setPreferredSize(new java.awt.Dimension(340, 373));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -79,11 +100,11 @@ public class AsignarTransporte extends javax.swing.JFrame {
         jLabel2.setText("Nombre Empleado:");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 50, -1, -1));
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jPanel1.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, 140, -1));
+        jTransporte.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jPanel1.add(jTransporte, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, 140, -1));
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jPanel1.add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 80, 140, -1));
+        jEmpleado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jPanel1.add(jEmpleado, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 80, 140, -1));
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
@@ -96,6 +117,11 @@ public class AsignarTransporte extends javax.swing.JFrame {
 
         jButton1.setBackground(new java.awt.Color(249, 168, 25));
         jButton1.setText("Agregar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
         jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 330, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -116,6 +142,45 @@ public class AsignarTransporte extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_jLabel4MouseClicked
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        String Nombre = (String) jEmpleado.getSelectedItem();
+        String Transporte = (String) jTransporte.getSelectedItem();
+        try {
+            transporte.AsignarTransporte(Nombre, Transporte);
+            JOptionPane.showMessageDialog(null, "Transporte Asigando Corectamente");
+        } catch (SQLException ex) {
+            Logger.getLogger(AsignarTransporte.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(AsignarTransporte.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            Logger.getLogger(AsignarTransporte.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            Logger.getLogger(AsignarTransporte.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    public void getEmpleado() throws SQLException, ClassNotFoundException, InstantiationException, IllegalAccessException{
+    
+        jEmpleado.removeAllItems();
+        ArrayList<String> lista = new ArrayList();
+        lista = transporte.ListarEmpleado();
+        for (int i = 0; i < lista.size(); i++){
+            jEmpleado.addItem(lista.get(i));
+        }
+    }
+    
+    public void getTrasporte() throws SQLException, ClassNotFoundException, InstantiationException, IllegalAccessException{
+    
+        jTransporte.removeAllItems();
+        ArrayList <String> listaTransporte = new ArrayList();
+        listaTransporte = transporte.ListarTransporte();
+        
+        for (int i = 0;i < listaTransporte.size(); i ++){
+            jTransporte.addItem(listaTransporte.get(i));
+        }
+    }
+    
+    
     /**
      * @param args the command line arguments
      */
@@ -153,8 +218,7 @@ public class AsignarTransporte extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
+    private javax.swing.JComboBox<String> jEmpleado;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -163,5 +227,6 @@ public class AsignarTransporte extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JComboBox<String> jTransporte;
     // End of variables declaration//GEN-END:variables
 }
