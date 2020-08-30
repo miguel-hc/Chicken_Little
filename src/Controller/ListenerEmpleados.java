@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import net.sf.jasperreports.engine.JRException;
 
 public class ListenerEmpleados implements ActionListener, KeyListener{
 
@@ -33,6 +34,7 @@ public class ListenerEmpleados implements ActionListener, KeyListener{
         this.inicio.txtTelefono.addKeyListener(this);
         this.inicio.jSearch.addKeyListener(this);
         this.inicio.btnEditar.addActionListener(this);
+        this.inicio.btnReporEmpleados.addActionListener(this);
         
     }
     
@@ -201,6 +203,21 @@ public class ListenerEmpleados implements ActionListener, KeyListener{
                 inicio.txtTelefono.setText(telefono);
             }else{
                 JOptionPane.showMessageDialog(null, "No selecciono un cliente");
+            }
+        }
+        
+        if (e.getSource() == inicio.btnReporEmpleados){
+        
+            try {
+                empleado.getReport(inicio.jSearch.getText());
+            } catch (ClassNotFoundException ex) {
+                Logger.getLogger(ListenerEmpleados.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (InstantiationException ex) {
+                Logger.getLogger(ListenerEmpleados.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (IllegalAccessException ex) {
+                Logger.getLogger(ListenerEmpleados.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (JRException ex) {
+                Logger.getLogger(ListenerEmpleados.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
     }

@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="d0044222-5dca-4be8-8211-394d350da388">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[select ruta.Nombre as NombreRuta, empleado.Nombre as NombreEmpleado, transportes.Nombre_Transporte as 
+NombreTransporte, rejas.Numero_reja, rejas.Numero_pollo, rejas.Kilogramo, rejas.Precio, rejas.Fecha,
+(rejas.Numero_pollo * rejas.Kilogramo)  as TotalPagar
+from ruta inner join asignacion_rutas on ruta.idRuta = asignacion_rutas.Ruta_idRuta 
+inner join empleado on asignacion_rutas.empleado_idEmpleado inner join asignacion_transporte 
+on empleado.idEmpleado = asignacion_transporte.Empleado_idEmpleado inner join transportes 
+on asignacion_transporte.Empleado_idEmpleado = empleado.idEmpleado inner join asignacion_pollo 
+on ruta.idRuta = asignacion_pollo.Ruta_idRuta inner join rejas 
+on asignacion_pollo.Rejas_idRejas = rejas.idRejas]]>
+	</queryString>
+	<field name="NombreRuta" class="java.lang.String"/>
+	<field name="NombreEmpleado" class="java.lang.String"/>
+	<field name="NombreTransporte" class="java.lang.String"/>
+	<field name="Numero_reja" class="java.lang.Long">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Numero_pollo" class="java.lang.Long">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Kilogramo" class="java.lang.Long">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Precio" class="java.lang.Double">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Fecha" class="java.sql.Date">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="TotalPagar" class="java.math.BigInteger"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="11" y="17" width="148" height="20" uuid="ccf749c8-3465-4671-af46-d36365770720"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[Granja la Selva]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="11" y="47" width="100" height="20" uuid="08dd73d2-a444-4441-a312-d856177315ec"/>
+				<textElement>
+					<font size="13"/>
+				</textElement>
+				<text><![CDATA[Rayon Chiapas]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="59" width="229" height="20" uuid="a530715c-a3ce-43d1-ade2-d12b8f3800ba"/>
+				<text><![CDATA[______________________________________________]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch">
+			<staticText>
+				<reportElement x="11" y="15" width="232" height="20" uuid="c97e47b4-7144-4d86-a55c-1d23dfb3d36a"/>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[Telefono: 9191209232 -- 9191223187]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="220" splitType="Stretch">
+			<staticText>
+				<reportElement x="11" y="9" width="48" height="20" uuid="d9990e36-964a-4449-9668-89ef0bc91f84"/>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[Fecha:]]></text>
+			</staticText>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="59" y="9" width="100" height="20" uuid="288737da-15d6-492b-9cb1-5b2c9832f07e"/>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="11" y="29" width="100" height="20" uuid="09df7887-8eb7-4cc4-a047-a54ec5de5ffe"/>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[Numero de Reja: ]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="111" y="29" width="100" height="20" uuid="a2ea6f93-cf94-4e1e-9551-e0f275b6051f"/>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Numero_reja}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="11" y="58" width="159" height="20" uuid="e4f680f2-bd61-462c-afd7-7971c5d73fa6"/>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[Descripcion: Pollos vivos]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="2" y="81" width="227" height="20" uuid="6df28e9a-9c40-4d52-a7f4-fd83fbb734c1"/>
+				<text><![CDATA[______________________________________________]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="11" y="101" width="75" height="20" uuid="6cb8d6bc-12bc-4b74-8e00-79bdc7bf3993"/>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[No Pollos:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="11" y="121" width="75" height="20" uuid="99912a45-e77e-4977-893c-244df900da9a"/>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Numero_pollo}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="100" y="101" width="45" height="20" uuid="a7341e83-99a5-4f31-9402-f100b1aeedda"/>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[Kg]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="100" y="121" width="45" height="20" uuid="9df39709-10ca-41ab-bbef-dd0f4c0adc1d"/>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Kilogramo}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="159" y="101" width="54" height="20" uuid="f1781123-6a1f-4251-b14a-efab0df284fe"/>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[Precio:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="159" y="121" width="52" height="20" uuid="c232f02d-d399-4cc8-941b-4056be42d2bb"/>
+				<textFieldExpression><![CDATA[$F{Precio}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="2" y="141" width="227" height="20" uuid="22272491-3325-45d2-b853-0a08cb4b5be6"/>
+				<text><![CDATA[______________________________________________]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="2" y="161" width="41" height="20" uuid="2219b507-74ac-43cc-9a92-bd2517cdb968"/>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[Total:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="45" y="161" width="100" height="20" uuid="8699daca-1c1c-4ba9-8579-ac84be1a0ea7"/>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{TotalPagar}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="2" y="200" width="157" height="20" uuid="cd35d5eb-2a89-43d3-9a74-568bd24d5abc"/>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[¡Gracias Por su compra!]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="35" splitType="Stretch"/>
+	</detail>
+	<columnFooter>
+		<band height="29" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

@@ -3,128 +3,88 @@ package Controller;
 
 public class RutasController {
     
-    int dnireja;
-    int numero;
-    float kg;
-    float precio;
-    String fecha;
-    String NombreEmpleado;
-    String NombreRuta;
-    float PrecioEnKg;
-    String FechaSalida;
-    String Fechallegada;
-    String NombreTransporte;
-    String Descripcion;
-
-    public String getNombreTransporte() {
-        return NombreTransporte;
-    }
-
-    public void setNombreTransporte(String NombreTransporte) {
-        this.NombreTransporte = NombreTransporte;
-    }
-
-    public String getDescripcion() {
-        return Descripcion;
-    }
-
-    public void setDescripcion(String Descripcion) {
-        this.Descripcion = Descripcion;
-    }
+    String Ruta;
+    String Transporte;
+    String Empleado;
+    int NumeroReja;
+    int NumeroPollos;
+    int Kg;
+    int Precio;
+    String Fecha;
     
     public RutasController(){
-        dnireja = 0; 
-        numero = 0;
-        kg = 0;
-        precio = 0;
-        fecha = "";
-        NombreEmpleado = "";
-        NombreRuta = "";
-        PrecioEnKg = 0;
-        FechaSalida = ""; 
-        Fechallegada = "";
-        NombreTransporte = "";
-        Descripcion = "";
-        
+    
+        Ruta = "";
+        Transporte = "";
+        Empleado = "";
+        NumeroReja = 0;
+        NumeroPollos = 0;
+        Kg = 0;
+        Precio = 0;
+        Fecha = "";
     }
 
-    public String getNombreEmpleado() {
-        return NombreEmpleado;
+    public String getRuta() {
+        return Ruta;
     }
 
-    public void setNombreEmpleado(String NombreEmpleado) {
-        this.NombreEmpleado = NombreEmpleado;
+    public void setRuta(String Ruta) {
+        this.Ruta = Ruta;
     }
 
-    public String getNombreRuta() {
-        return NombreRuta;
+    public String getTransporte() {
+        return Transporte;
     }
 
-    public void setNombreRuta(String NombreRuta) {
-        this.NombreRuta = NombreRuta;
+    public void setTransporte(String Transporte) {
+        this.Transporte = Transporte;
     }
 
-    public float getPrecioEnKg() {
-        return PrecioEnKg;
+    public String getEmpleado() {
+        return Empleado;
     }
 
-    public void setPrecioEnKg(float PrecioEnKg) {
-        this.PrecioEnKg = PrecioEnKg;
+    public void setEmpleado(String Empleado) {
+        this.Empleado = Empleado;
     }
 
-    public String getFechaSalida() {
-        return FechaSalida;
+    public int getNumeroReja() {
+        return NumeroReja;
     }
 
-    public void setFechaSalida(String FechaSalida) {
-        this.FechaSalida = FechaSalida;
+    public void setNumeroReja(int NumeroReja) {
+        this.NumeroReja = NumeroReja;
     }
 
-    public String getFechallegada() {
-        return Fechallegada;
+    public int getNumeroPollos() {
+        return NumeroPollos;
     }
 
-    public void setFechallegada(String Fechallegada) {
-        this.Fechallegada = Fechallegada;
+    public void setNumeroPollos(int NumeroPollos) {
+        this.NumeroPollos = NumeroPollos;
     }
 
-    public int getDnireja() {
-        return dnireja;
+    public int getKg() {
+        return Kg;
     }
 
-    public void setDnireja(int dnireja) {
-        this.dnireja = dnireja;
+    public void setKg(int Kg) {
+        this.Kg = Kg;
     }
 
-    public int getNumero() {
-        return numero;
+    public int getPrecio() {
+        return Precio;
     }
 
-    public void setNumero(int numero) {
-        this.numero = numero;
-    }
-
-    public float getKg() {
-        return kg;
-    }
-
-    public void setKg(float kg) {
-        this.kg = kg;
-    }
-
-    public float getPrecio() {
-        return precio;
-    }
-
-    public void setPrecio(float precio) {
-        this.precio = precio;
+    public void setPrecio(int Precio) {
+        this.Precio = Precio;
     }
 
     public String getFecha() {
-        return fecha;
+        return Fecha;
     }
 
-    public void setFecha(String fecha) {
-        this.fecha = fecha;
+    public void setFecha(String Fecha) {
+        this.Fecha = Fecha;
     }
 }

@@ -24,7 +24,7 @@ public class Chicken_Little {
     {
         Component dialog = null;
         try{
-            FileInputStream propFile = new FileInputStream(System.getProperty("user.dir")+"/src/chicken_little/configdatabase.txt");
+            FileInputStream propFile = new FileInputStream(System.getProperty("user.dir")+"/configdatabase.txt");
             Properties p = new Properties(System.getProperties());
             p.load(propFile);
             System.setProperties(p);
@@ -65,10 +65,10 @@ public class Chicken_Little {
             System.exit(-1);
         }
         
-        Inicio inicio = new Inicio();
-        inicio.setVisible(true);
-        //Login login = new Login();
-        //login.setVisible(true);
+        //Inicio inicio = new Inicio();
+        //inicio.setVisible(true);
+        Login login = new Login();
+        login.setVisible(true);
         
         
     }

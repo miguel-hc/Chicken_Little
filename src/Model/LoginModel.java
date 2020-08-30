@@ -14,7 +14,7 @@ public class LoginModel {
     {
         Conexion cdb = factoriaServicio.getInstancia().getConexionDB();
         LoginController lg = new LoginController();
-        cdb.un_sql = "Select * from Acceso where Usuario = '"+lg.getUsuario()+"' and Pass = '"+lg.getPassword()+"'";
+        cdb.un_sql = "Select * from acceso where Usuario = '"+lg.getUsuario()+"' and Pass = '"+lg.getPassword()+"'";
         cdb.resultado = cdb.un_st.executeQuery(cdb.un_sql);   
         if (cdb.resultado != null){
             if (cdb.resultado.next()){
